@@ -1,29 +1,45 @@
-def ingest_documents():
-    from langchain_community.document_loaders import TextLoader
-    from langchain_text_splitters import RecursiveCharacterTextSplitter
-    from vector_store import vector_store
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from vector_store import vector_store
+from utils import load_document
+import os
 
-    loader = TextLoader("Data/employee_handbook.txt")
-    documents = loader.load()
+
+def ingest_documents(file_paths):
+    """
+    Ingest one or more TXT/PDF documents into PGVector.
+    """
 
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=100,
         chunk_overlap=20,
     )
 
-    chunks = splitter.split_documents(documents)
+    all_chunks = []
 
-    print(f"Original Documents : {len(documents)}")
-    print(f"Chunks Created     : {len(chunks)}")
+    for file_path in file_paths:
+
+        documents = load_document(file_path)
+        chunks = splitter.split_documents(documents)
+
+        filename = os.path.basename(file_path)
+
+        # Add metadata to every chunk
+        for chunk in chunks:
+            chunk.metadata["source"] = filename
+
+        print(f"\nProcessed: {filename}")
+        print(f"Documents : {len(documents)}")
+        print(f"Chunks    : {len(chunks)}")
+
+        all_chunks.extend(chunks)
+
     print("=" * 60)
+    print(f"Total Chunks: {len(all_chunks)}")
 
-    for i, chunk in enumerate(chunks):
-        print(f"\nChunk {i+1}")
-        print("-" * 40)
-        print(chunk.page_content)
+    vector_store.add_documents(all_chunks)
 
-    vector_store.add_documents(chunks)
-    print(f"Ingested {len(chunks)} chunks into PGVector.")
+    print(f"Ingested {len(all_chunks)} chunks into PGVector.")
+
 
 if __name__ == "__main__":
-    ingest_documents()
+    ingest_documents(["Data/employee_handbook.txt"])

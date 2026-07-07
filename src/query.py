@@ -5,6 +5,14 @@ def ask_question(query):
 
     results = vector_store.similarity_search(query=query, k=2)
 
+    print("\nRetrieved Chunks")
+    print("=" * 60)
+
+    for i, doc in enumerate(results):
+        print(f"\nChunk {i+1}")
+        print("-" * 40)
+        print(doc.page_content)
+
     context = "\n\n".join([doc.page_content for doc in results])
 
     prompt = f"""
