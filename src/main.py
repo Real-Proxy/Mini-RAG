@@ -1,5 +1,5 @@
-from ingest import ingest_documents
-from query import ask_question
+from src.ingest import ingest_documents
+from src.query import ask_question
 
 def main():
     ingest_documents(["Uploads/ArchitMishra_Resume.pdf"])

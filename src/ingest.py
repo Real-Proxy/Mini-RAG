@@ -1,6 +1,6 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from vector_store import vector_store
-from utils import load_document
+from src.vector_store import vector_store
+from src.utils import load_document
 import os
 
 

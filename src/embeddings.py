@@ -1,5 +1,5 @@
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from config import GEMINI_API_KEY
+from src.config import GEMINI_API_KEY
 
 embeddings = GoogleGenerativeAIEmbeddings(
     model="gemini-embedding-001",

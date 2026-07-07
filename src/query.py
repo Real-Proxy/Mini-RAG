@@ -1,5 +1,5 @@
-from vector_store import vector_store
-from llm import llm
+from src.vector_store import vector_store
+from src.llm import llm
 
 def ask_question(query):
 

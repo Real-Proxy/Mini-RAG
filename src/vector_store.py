@@ -1,7 +1,7 @@
 from langchain_postgres import PGVector
 
-from config import DATABASE_URL
-from embeddings import embeddings
+from src.config import DATABASE_URL
+from src.embeddings import embeddings
 
 COLLECTION_NAME = "employee_handbook"
 
