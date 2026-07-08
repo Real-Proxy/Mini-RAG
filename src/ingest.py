@@ -1,5 +1,5 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from src.vector_store import vector_store
+from src.vector_store import vector_store,clear_embeddings
 from src.utils import load_document
 import os
 
@@ -39,6 +39,24 @@ def ingest_documents(file_paths):
     vector_store.add_documents(all_chunks)
 
     print(f"Ingested {len(all_chunks)} chunks into PGVector.")
+
+
+def rebuild_index(upload_folder):
+    clear_embeddings()
+
+    file_paths=[]
+
+    for file in os.listdir(upload_folder):
+        if file.lower().endswith((".txt",".pdf")):
+            file_paths.append(os.path.join(upload_folder,file))
+        
+
+    if not file_paths:
+        print("No documents founds")
+        return    
+        
+    ingest_documents(file_paths)   
+    
 
 
 if __name__ == "__main__":
