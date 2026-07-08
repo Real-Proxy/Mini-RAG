@@ -2,6 +2,7 @@
 A Retrieval-Augmented Generation (RAG) application built using **LangChain**, **Google Gemini**, **PostgreSQL + PGVector**, and **Streamlit**.
 
 The application allows users to upload their own PDF and TXT documents, index them into a PGVector database, and ask natural language questions based on the uploaded knowledge base.
+
 ---
 
 ## Features
