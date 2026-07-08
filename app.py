@@ -15,6 +15,10 @@ st.title("Mini RAG")
 UPLOAD_FOLDER = "Uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+if not os.listdir(UPLOAD_FOLDER):
+    st.info("No documents uploaded yet. Upload documents from the sidebar to get started.")
+
+
 with st.sidebar:
     st.header("Document Management")
 
@@ -48,6 +52,19 @@ with st.sidebar:
 
         else:
             st.warning("Please select at least one file.")
+    
+    st.subheader("Uploaded Documents")
+
+    uploaded_docs = [
+        file for file in os.listdir(UPLOAD_FOLDER)
+        if file.lower().endswith((".pdf", ".txt"))
+        ]
+
+    if uploaded_docs:
+        for i, file in enumerate(uploaded_docs, start=1):
+            st.write(f"{i}. {file}")
+    else:
+        st.caption("No documents uploaded.")
 
     st.divider()
 
@@ -61,14 +78,14 @@ with st.sidebar:
 question = st.text_input("Ask a question")
 
 if st.button("Ask"):
+    response = ask_question(question)
 
     if question.strip():
-
-        answer = ask_question(question)
-
-        st.subheader("Answer")
-
-        st.write(answer)
-
+        st.write(response["answer"])
+        st.subheader("Sources")
+        
+        for source in response["sources"]:
+            st.write(f"- {source}")
+            
     else:
         st.warning("Please enter a question.")

@@ -10,8 +10,8 @@ def ingest_documents(file_paths):
     """
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=100,
-        chunk_overlap=20,
+        chunk_size=500,
+        chunk_overlap=100,
     )
 
     all_chunks = []

@@ -1,14 +1,24 @@
-# Mini RAG using LangChain + PGVector
+# Mini RAG using LangChain + PGVector + Streamlit
+A Retrieval-Augmented Generation (RAG) application built using **LangChain**, **Google Gemini**, **PostgreSQL + PGVector**, and **Streamlit**.
 
-This is a simple Retrieval-Augmented Generation (RAG) project that I built to understand the basics of document ingestion, embeddings, vector databases, and semantic search using LangChain and PGVector.
+The application allows users to upload their own PDF and TXT documents, index them into a PGVector database, and ask natural language questions based on the uploaded knowledge base.
+---
 
-The project uses a sample employee handbook as the knowledge base. A user's question is converted into an embedding, relevant document chunks are retrieved from PGVector, and the retrieved context is sent to Gemini to generate the final answer.
+## Features
+
+- Upload PDF and TXT documents
+- Multiple document support
+- Semantic search using PGVector
+- Ask questions through a Streamlit UI
+- Rebuild the vector index whenever new documents are added
+- Shows which uploaded documents were used to generate the answer
 
 ---
 
 ## Tech Stack
 
 - Python
+- Streamlit
 - LangChain
 - Google Gemini
 - PostgreSQL + PGVector
@@ -18,23 +28,24 @@ The project uses a sample employee handbook as the knowledge base. A user's ques
 
 ## Project Structure
 
-```
+```text
 mini-rag/
 │
 ├── Data/
-│   └── employee_handbook.txt
+│
+├── Uploads/
 │
 ├── src/
 │   ├── config.py
 │   ├── embeddings.py
-│   ├── vector_store.py
-│   ├── llm.py
 │   ├── ingest.py
+│   ├── llm.py
 │   ├── query.py
-│   └── main.py
+│   ├── utils.py
+│   └── vector_store.py
 │
+├── app.py
 ├── requirements.txt
-├── .env
 └── README.md
 ```
 
@@ -65,7 +76,7 @@ docker run --name pgvector-container ^
 -d pgvector/pgvector:pg16
 ```
 
-### 4. Add a `.env` file
+### 4. Create a `.env` file
 
 ```env
 GEMINI_API_KEY=YOUR_API_KEY
@@ -77,29 +88,12 @@ DATABASE_URL=postgresql+psycopg://langchain:langchain@localhost:6024/langchain
 
 ## Running the Project
 
-First ingest the document into PGVector.
+Start the Streamlit app
 
 ```bash
-python src/ingest.py
+streamlit run app.py
 ```
 
-Then start the application.
+The application will open in your browser.
 
-```bash
-python src/main.py
-```
-
----
-
-## Sample
-
-```
-Ask a question:
-
-> Where is HR located?
-
-Answer:
-
-The HR department is located on the third floor.
-```
-
+--

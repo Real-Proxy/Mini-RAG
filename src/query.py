@@ -3,7 +3,7 @@ from src.llm import llm
 
 def ask_question(query):
 
-    results = vector_store.similarity_search(query=query, k=2)
+    results = vector_store.similarity_search(query=query, k=5)
 
     print("\nRetrieved Chunks")
     print("=" * 60)
@@ -35,5 +35,12 @@ def ask_question(query):
 
     response = llm.invoke(prompt)
 
-    return response.content[0]["text"]
+    sources = []
+
+    for doc in results:
+        source = doc.metadata.get("source", "Unknown")
+
+    if source not in sources:
+        sources.append(source)
+        return {"answer": response.content[0]["text"],"sources": sources}
 
