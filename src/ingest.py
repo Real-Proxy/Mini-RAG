@@ -1,8 +1,11 @@
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from src.vector_store import vector_store,clear_embeddings
-from src.utils import load_document
 import os
+import time
 
+from langchain_google_genai._common import GoogleGenerativeAIError
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+from src.vector_store import vector_store, clear_embeddings
+from src.utils import load_document
 
 def ingest_documents(file_paths):
     """
@@ -36,10 +39,33 @@ def ingest_documents(file_paths):
     print("=" * 60)
     print(f"Total Chunks: {len(all_chunks)}")
 
-    vector_store.add_documents(all_chunks)
+    BATCH_SIZE = 20
 
-    print(f"Ingested {len(all_chunks)} chunks into PGVector.")
+    for i in range(0, len(all_chunks), BATCH_SIZE):
+        batch = all_chunks[i:i + BATCH_SIZE]
+        
+        while True:
+            try:
+                vector_store.add_documents(batch)
+                print(
+                    f"Indexed batch "
+                    f"{i//BATCH_SIZE + 1} "
+                    f"({len(batch)} chunks)"
+                    )
 
+                break
+
+            except GoogleGenerativeAIError as e:
+                if "RESOURCE_EXHAUSTED" in str(e):
+                    print("\nRate limit reached.")
+                    print("Waiting 5 seconds before retrying...\n")
+
+                    time.sleep(5)
+
+                else:
+                    raise e
+
+    print(f"\nSuccessfully ingested {len(all_chunks)} chunks into PGVector.")
 
 def rebuild_index(upload_folder):
     clear_embeddings()

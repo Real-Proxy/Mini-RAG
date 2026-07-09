@@ -1,17 +1,150 @@
 Employee Handbook
 
-Employees receive 12 sick leaves every year.
+Welcome to ABC Technologies!
 
-Employees receive 20 casual leaves every year.
+We are excited to have you as part of our team. This handbook provides an overview of the company's policies, work culture, and employee benefits.
 
-Office timings are from 9:00 AM to 6:00 PM.
+--------------------------------------------------
+Office Hours
+--------------------------------------------------
 
-Employees can work from home two days a week with manager approval.
+The standard working hours are from 9:00 AM to 6:00 PM, Monday through Friday.
+
+Employees are expected to log in before 9:15 AM. Repeated late arrivals may be discussed with the reporting manager.
+
+--------------------------------------------------
+Hybrid Work Policy
+--------------------------------------------------
+
+Employees are allowed to work from home up to two days per week with prior approval from their reporting manager.
+
+Employees working remotely must remain available during working hours and attend all scheduled meetings.
+
+--------------------------------------------------
+Leave Policy
+--------------------------------------------------
+
+Employees receive the following leave benefits every calendar year:
+
+- 20 Casual Leave days
+- 10 Sick Leave days
+- 12 Public Holidays
+
+Leave requests should be submitted at least two working days in advance whenever possible.
+
+Medical leave extending beyond three consecutive days requires a medical certificate.
+
+Unused Casual Leave cannot be carried forward to the next year.
+
+--------------------------------------------------
+Payroll
+--------------------------------------------------
+
+Salary is credited on the last working day of every month.
+
+Employees can access salary slips through the employee self-service portal.
+
+Any payroll-related concerns should be reported to the Finance department within five working days.
+
+--------------------------------------------------
+Performance Reviews
+--------------------------------------------------
+
+Performance reviews are conducted twice a year.
+
+Employees are evaluated based on technical skills, teamwork, communication, ownership, and overall contribution to projects.
+
+Outstanding performers may receive bonuses or salary revisions based on company policy.
+
+--------------------------------------------------
+Training
+--------------------------------------------------
+
+Every new employee must complete the mandatory onboarding program during the first week.
+
+The company provides access to online learning platforms for technical and professional development.
+
+Employees are encouraged to complete at least two certification courses every year.
+
+--------------------------------------------------
+IT Policies
+--------------------------------------------------
+
+Each employee is assigned a company laptop during onboarding.
+
+Installing unauthorized software is prohibited.
+
+Company devices should always be protected with strong passwords and automatic screen lock.
+
+Employees must immediately report lost or stolen devices to the IT department.
+
+--------------------------------------------------
+Information Security
+--------------------------------------------------
+
+Company information should never be shared with unauthorized individuals.
+
+Employees must not store confidential company documents on personal cloud storage services.
+
+Multi-factor authentication (MFA) is mandatory for all company accounts.
+
+Passwords should not be shared with anyone, including colleagues.
+
+Employees should immediately report phishing emails or suspicious activity to the Information Security team.
+
+--------------------------------------------------
+Code of Conduct
+--------------------------------------------------
+
+All employees are expected to maintain a professional and respectful workplace.
+
+Harassment, discrimination, and inappropriate behavior will not be tolerated.
+
+Employees should communicate respectfully with colleagues, clients, and partners.
+
+--------------------------------------------------
+Travel Policy
+--------------------------------------------------
+
+Business travel must be approved by the reporting manager before bookings are made.
+
+Travel expenses such as flights, hotels, and local transportation are reimbursed according to company policy.
+
+Employees should submit reimbursement claims within 15 days after completing business travel.
+
+--------------------------------------------------
+Office Facilities
+--------------------------------------------------
 
 The HR department is located on the third floor.
 
-Medical insurance covers spouse and two dependent children.
+Meeting rooms can be booked through the internal booking portal.
 
-Employees should submit leave requests at least two days in advance.
+The cafeteria operates from 8:00 AM to 7:00 PM.
 
-The company follows a hybrid work model.
+Free coffee, tea, and drinking water are available throughout the day.
+
+The office provides free high-speed Wi-Fi for all employees.
+
+--------------------------------------------------
+Resignation Policy
+--------------------------------------------------
+
+Employees are required to provide a notice period of 60 days before leaving the company.
+
+During the notice period, employees are expected to complete knowledge transfer and hand over assigned responsibilities.
+
+Company-issued assets including laptops, ID cards, and access cards must be returned before the final working day.
+
+--------------------------------------------------
+Contact Information
+--------------------------------------------------
+
+HR Email:
+hr@abctechnologies.com
+
+IT Support:
+it-support@abctechnologies.com
+
+Emergency Contact:
++91-1800-555-1234
