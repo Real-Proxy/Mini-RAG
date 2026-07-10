@@ -1,7 +1,10 @@
 # Mini RAG using LangChain + PGVector + Streamlit
+
 A Retrieval-Augmented Generation (RAG) application built using **LangChain**, **Google Gemini**, **PostgreSQL + PGVector**, and **Streamlit**.
 
-The application allows users to upload their own PDF and TXT documents, index them into a PGVector database, and ask natural language questions based on the uploaded knowledge base.
+The application allows users to upload PDF and TXT documents, index them into a PGVector database, and ask natural language questions based on the uploaded knowledge base.
+
+The project also includes an evaluation pipeline using **RAGAS** to measure the quality of retrieval and generated responses.
 
 ---
 
@@ -13,6 +16,8 @@ The application allows users to upload their own PDF and TXT documents, index th
 - Ask questions through a Streamlit UI
 - Rebuild the vector index whenever new documents are added
 - Shows which uploaded documents were used to generate the answer
+- Automated RAG evaluation using RAGAS
+- Generates evaluation reports in CSV and JSON format
 
 ---
 
@@ -24,6 +29,7 @@ The application allows users to upload their own PDF and TXT documents, index th
 - Google Gemini
 - PostgreSQL + PGVector
 - Docker
+- RAGAS
 
 ---
 
@@ -35,6 +41,14 @@ mini-rag/
 ├── Data/
 │
 ├── Uploads/
+│
+├── evaluation/
+│   ├── dataset.py
+│   ├── run_eval.py
+│   └── results/
+│       ├── report.csv
+│       ├── report.json
+│       └── summary.json
 │
 ├── src/
 │   ├── config.py
@@ -97,4 +111,25 @@ streamlit run app.py
 
 The application will open in your browser.
 
---
+---
+
+## Running the Evaluation
+
+Run the RAGAS evaluation pipeline using:
+
+```bash
+python -m evaluation.run_eval
+```
+
+The evaluation generates the following reports:
+
+- `evaluation/results/report.csv`
+- `evaluation/results/report.json`
+- `evaluation/results/summary.json`
+
+The following RAGAS metrics are evaluated:
+
+- Faithfulness
+- Answer Relevancy
+- Context Precision
+- Context Recall

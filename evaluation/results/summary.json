@@ -1,0 +1,25 @@
+{
+    "total_questions": 25,
+    "metrics": {
+        "faithfulness": {
+            "average": 0.96,
+            "successful_evaluations": 25,
+            "null_values": 0
+        },
+        "answer_relevancy": {
+            "average": 0.7156493618456675,
+            "successful_evaluations": 25,
+            "null_values": 0
+        },
+        "context_precision": {
+            "average": 0.8697777777241074,
+            "successful_evaluations": 25,
+            "null_values": 0
+        },
+        "context_recall": {
+            "average": 0.84,
+            "successful_evaluations": 25,
+            "null_values": 0
+        }
+    }
+}
